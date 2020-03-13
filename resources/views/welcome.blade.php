@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 @section('content')
         <!--Main Slider-->
         <section class="main-slider style3">

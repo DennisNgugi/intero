@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 @section('content')
         <!--Start breadcrumb area-->
         <section class="breadcrumb-area style2" style="background-image: url(/images/resources/breadcrumb-bg-2.jpg);">
