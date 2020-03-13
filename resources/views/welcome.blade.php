@@ -1,100 +1,756 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<!-- index-2 06:41:43 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <title>Intero</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- For IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/app.css">
 
-            .full-height {
-                height: 100vh;
-            }
+    <!-- master stylesheet -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Responsive stylesheet -->
+    <link rel="stylesheet" href="/css/responsive.css">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon/favicon-16x16.png" sizes="16x16">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <!-- Fixing Internet Explorer-->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="js/html5shiv.js"></script>
+    <![endif]-->
 
-            .position-ref {
-                position: relative;
-            }
+</head>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+<body>
+    <div class="boxed_wrapper">
 
-            .content {
-                text-align: center;
-            }
 
-            .title {
-                font-size: 84px;
-            }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+        <!-- Start Top Bar style2 -->
+        <section class="top-bar-style2">
+            <div class="top-style2 clearfix">
+                <div class="top-style2-left">
+                    <p><span class="icon-music"></span>For any query?</p>
+                    <ul>
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <li>info@intero.com</li>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                    </ul>
                 </div>
-            @endif
+                <div class="top-style2-right">
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <ul class="topbar-social-links">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </body>
+        </section>
+        <!-- End Top Bar style2 -->
+
+        <!--Start Main Header-->
+        <header class="main-header header-style2 stricky">
+            <div class="inner-container clearfix">
+                <div class="logo-box-style2 float-left">
+                    <a href="index-2.html">
+                        <img src="/images/resources/logo.png" alt="Awesome Logo">
+                    </a>
+                </div>
+                <div class="main-menu-box float-right">
+                    <nav class="main-menu style2 clearfix">
+                        <div class="navbar-header clearfix">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        </div>
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li class="current"><a href="/">Home</a>
+                                </li>
+                                <li class="dropdown"><a href="services.html">Shop by Department</a>
+                                    <ul>
+                                        <li><a href="services.html">View All Services</a></li>
+                                        <li><a href="ser-concept-designs.html">Concept Designs</a></li>
+                                        <li><a href="ser-project-designs.html">Project Designs</a></li>
+                                        <li><a href="ser-make-overs.html">Make Overs</a></li>
+                                        <li><a href="ser-consulting.html">Consulting</a></li>
+                                        <li><a href="ser-glass-wrought.html">Glass & Wrought</a></li>
+                                        <li><a href="ser-space-planning.html">Space Planning</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="project.html">Find a Pro</a>
+                                    <ul>
+                                        <li><a href="project.html">Classic View 01</a></li>
+                                        <li><a href="project-v2.html">Classic View 02</a></li>
+                                        <li><a href="project-v3.html">Modern View 01</a></li>
+                                        <li><a href="project-v4.html">Modern View 02</a></li>
+                                        <li><a href="project-v5.html">Fullwidth 01</a></li>
+                                        <li><a href="project-v6.html">Fulldwidth 02</a></li>
+                                        <li><a href="project-single.html">Projects Single</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="mainmenu-right style2">
+                        <!-- <div class="outer-search-box">
+                            <div class="seach-toggle"><i class="fa fa-search"></i></div>
+                            <ul class="search-box">
+                                <li>
+                                    <form method="post" action="#">
+                                        <div class="form-group">
+                                            <input type="search" name="search" placeholder="Search Here" required>
+                                            <button type="submit"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div> -->
+                        <div class="cart-box">
+                            <a href="shoping-cart.html"><span class="icon-bag"><span class="number">0</span></span></a>
+                        </div>
+                        <div class="button">
+                            <a class="btn-one" href="#">Join as a vendor<span class="flaticon-next"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--End Main Header-->
+
+        <!--Main Slider-->
+        <section class="main-slider style3">
+            <div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
+                <div class="rev_slider fullwidthabanner" id="rev_slider_three" data-version="5.4.1">
+                    <ul>
+                        <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1689" data-masterspeed="default"
+                            data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/slides/v3-1.jpg"
+                            data-title="Slide Title" data-transition="parallaxvertical">
+
+                            <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="images/slides/v3-1.jpg">
+
+                            <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['800','800','500','400']" data-whitespace="normal"
+                                data-hoffset="['15','15','15','15']" data-voffset="['-145','-100','-100','-90']" data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                style="z-index: 7; white-space: nowrap;">
+                                <div class="slide-content left-slide">
+                                    <div class="big-title">
+                                        Make Your<br> Home Exquisite.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['800','800','500','400']" data-whitespace="normal"
+                                data-hoffset="['15','15','15','15']" data-voffset="['-15','15','-5','0']" data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},
+                        {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' style="z-index: 7; white-space: nowrap;">
+                                <div class="slide-content left-slide">
+                                    <div class="text">Duty through weakness of will, which is the same as saying through<br> shrinking from toil and pain.</div>
+                                </div>
+                            </div>
+                            <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['800','800','500','400']" data-whitespace="normal"
+                                data-hoffset="['15','15','15','15']" data-voffset="['85','115','90','90']" data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                style="z-index: 7; white-space: nowrap;">
+                                <div class="slide-content left-slide">
+                                    <div class="btn-box">
+                                        <a class="btn-one" href="#">About Company<span class="flaticon-next"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1687" data-masterspeed="default"
+                            data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/slides/v3-2.jpg"
+                            data-title="Slide Title" data-transition="parallaxvertical">
+
+                            <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="images/slides/v3-2.jpg">
+
+                            <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['800','800','500','400']" data-whitespace="normal"
+                                data-hoffset="['15','15','15','15']" data-voffset="['-145','-100','-100','-90']" data-x="['right','right','right','right']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                style="z-index: 7; white-space: nowrap;">
+                                <div class="slide-content">
+                                    <div class="big-title">
+                                        Beautiful Living<br> Solutions.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['800','800','500','400']" data-whitespace="normal"
+                                data-hoffset="['15','15','15','15']" data-voffset="['-15','15','-5','0']" data-x="['right','right','right','right']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},
+                        {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' style="z-index: 7; white-space: nowrap;">
+                                <div class="slide-content">
+                                    <div class="text">Duty through weakness of will, which is the same as saying through<br> shrinking from toil and pain.</div>
+                                </div>
+                            </div>
+                            <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['800','800','500','400']" data-whitespace="normal"
+                                data-hoffset="['15','15','15','15']" data-voffset="['85','115','90','90']" data-x="['right','right','right','right']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                style="z-index: 7; white-space: nowrap;">
+                                <div class="slide-content">
+                                    <div class="btn-box">
+                                        <a class="btn-one" href="#">Our Services<span class="flaticon-next"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+
+                        <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1688" data-masterspeed="default"
+                            data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/slides/v3-3.jpg"
+                            data-title="Slide Title" data-transition="parallaxvertical">
+
+                            <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="images/slides/v3-3.jpg">
+
+                            <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['900','800','500','400']" data-whitespace="normal"
+                                data-hoffset="['15','15','15','15']" data-voffset="['-145','-100','-100','-90']" data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                style="z-index: 7; white-space: nowrap;">
+                                <div class="slide-content left-slide">
+                                    <div class="big-title">
+                                        Ten Kitchen<br> Product Highlights.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['900','800','500','400']" data-whitespace="normal"
+                                data-hoffset="['15','15','15','15']" data-voffset="['-15','15','-5','0']" data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},
+                        {"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' style="z-index: 7; white-space: nowrap;">
+                                <div class="slide-content left-slide">
+                                    <div class="text">Duty through weakness of will, which is the same as saying through<br> shrinking from toil and pain.</div>
+                                </div>
+                            </div>
+                            <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on" data-type="text" data-height="none" data-width="['900','800','500','400']" data-whitespace="normal"
+                                data-hoffset="['15','15','15','15']" data-voffset="['85','115','90','90']" data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+                                style="z-index: 7; white-space: nowrap;">
+                                <div class="slide-content left-slide">
+                                    <div class="btn-box">
+                                        <a class="btn-one" href="#">Our Products<span class="flaticon-next"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--End Main Slider-->
+
+        <!--Start services style1 area-->
+        <section class="services-style1-area">
+            <div class="container">
+                <div class="sec-title with-text max-width text-center">
+                    <!-- <p>What We Do</p> -->
+                    <div class="title">DIscover products for your  <span>Home / Office</span></div>
+                    <!-- <p class="bottom-text">We are an Interior Designer, Who believe in excellence, quality and honesty, yes we design beautiful home interiors.</p> -->
+                </div>
+                <div class="row">
+                    <!--Start single service style1-->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                        <div class="single-service-style1">
+                            <div class="img-holder">
+                                <img src="/images/services/1.jpg" alt="Awesome Image">
+                                <!-- <div class="overlay-style-two"></div> -->
+                                <div class="overlay-content-box">
+                                    <div class="box">
+                                        <div class="inner">
+                                            <div class="icon">
+                                                <span class="icon-lamp"></span>
+                                            </div>
+                                            <div class="title">
+                                                <h3>Lighting</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-holder">
+                                <div class="inner-content">
+                                    <div class="top">
+                                        <div class="icon">
+                                            <span class="icon-lamp"></span>
+                                        </div>
+                                        <div class="count">
+                                            <h1>01</h1>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="title">
+                                            <h3>Lighting</h3>
+                                        </div>
+                                        <div class="read-more">
+                                            <a href="#"><span class="icon-next"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overlay-content">
+                                  <div class="title">
+                                      <h3>Lighting</h3>
+                                  </div>
+                                  <div class="read-more">
+                                      <a href="#"><span class="icon-next"></span></a>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single service style1-->
+                    <!--Start single service style1-->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                        <div class="single-service-style1 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1200ms">
+                            <div class="img-holder">
+                                <img src="/images/services/2.jpg" alt="Awesome Image">
+                                <div class="overlay-style-two"></div>
+                                <div class="overlay-content-box">
+                                    <div class="box">
+                                        <div class="inner">
+                                            <div class="icon">
+                                                <span class="icon-paint"></span>
+                                            </div>
+                                            <div class="title">
+                                                <h3>Coloring</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-holder">
+                                <div class="inner-content">
+                                    <div class="top">
+                                        <div class="icon">
+                                            <span class="icon-paint"></span>
+                                        </div>
+                                        <div class="count">
+                                            <h1>02</h1>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="title">
+                                            <h3>Coloring</h3>
+                                        </div>
+                                        <div class="read-more">
+                                            <a href="#"><span class="icon-next"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overlay-content">
+                                    <div class="text">
+                                        <p>On that others hand, we will denounce with all righteous of demoralized charms.</p>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="#"><span class="icon-next"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single service style1-->
+                    <!--Start single service style1-->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                        <div class="single-service-style1 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1200ms">
+                            <div class="img-holder">
+                                <img src="/images/services/3.jpg" alt="Awesome Image">
+                                <div class="overlay-style-two"></div>
+                                <div class="overlay-content-box">
+                                    <div class="box">
+                                        <div class="inner">
+                                            <div class="icon">
+                                                <span class="icon-floor"></span>
+                                            </div>
+                                            <div class="title">
+                                                <h3>Patterns</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-holder">
+                                <div class="inner-content">
+                                    <div class="top">
+                                        <div class="icon">
+                                            <span class="icon-floor"></span>
+                                        </div>
+                                        <div class="count">
+                                            <h1>03</h1>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="title">
+                                            <h3>Patterns</h3>
+                                        </div>
+                                        <div class="read-more">
+                                            <a href="#"><span class="icon-next"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overlay-content">
+                                    <div class="text">
+                                        <p>On that others hand, we will denounce with all righteous of demoralized charms.</p>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="#"><span class="icon-next"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single service style1-->
+                    <!--Start single service style1-->
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                        <div class="single-service-style1 wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1200ms">
+                            <div class="img-holder">
+                                <img src="/images/services/4.jpg" alt="Awesome Image">
+                                <div class="overlay-style-two"></div>
+                                <div class="overlay-content-box">
+                                    <div class="box">
+                                        <div class="inner">
+                                            <div class="icon">
+                                                <span class="icon-window"></span>
+                                            </div>
+                                            <div class="title">
+                                                <h3>Textures</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-holder">
+                                <div class="inner-content">
+                                    <div class="top">
+                                        <div class="icon">
+                                            <span class="icon-window"></span>
+                                        </div>
+                                        <div class="count">
+                                            <h1>04</h1>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="title">
+                                            <h3>Textures</h3>
+                                        </div>
+                                        <div class="read-more">
+                                            <a href="#"><span class="icon-next"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overlay-content">
+                                    <div class="text">
+                                        <p>On that others hand, we will denounce with all righteous of demoralized charms.</p>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="#"><span class="icon-next"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single service style1-->
+                </div>
+            </div>
+        </section>
+        <!--End services style1 area-->
+
+        <!--Start slogan style2 area-->
+        <section class="slogan-style2-area" style="background-image:url(/images/parallax-background/slogan-bg.jpg);">
+            <div class="icon-holder">
+                <span class="flaticon-car"></span>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="inner-content">
+                            <div class="title">
+                                <h1>Creating lasting impressions through<br> <span>interior design.</span></h1>
+                            </div>
+                            <div class="button">
+                                <a class="btn-one call-us" href="#"><i class="icon-music"></i>+324 123 45 978</a>
+                                <a class="btn-one" href="#">Maintenance Guide<span class="flaticon-next"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End slogan style2 area-->
+
+
+        <!--Start latest blog area style2-->
+        <section class="latest-blog-area style2">
+            <div class="container inner-content">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="sec-title float-left">
+                            <p>Find professionals</p>
+                            <div class="title">Services you can get <span>.....</span></div>
+                        </div>
+                        <div class="more-blog-button float-right">
+                            <!-- <a class="btn-two" href="blog.html">More News<span class="flaticon-next"></span></a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--Start single blog post-->
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                        <div class="single-blog-post wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="img-holder">
+                                <img src="/images/blog/latest-b-v1-1.jpg" alt="Awesome Image">
+                                <div class="overlay-style-two"></div>
+                                <div class="overlay">
+                                    <div class="box">
+                                        <div class="link-icon">
+                                            <a href="#"><span class="flaticon-zoom"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-holder">
+                                <div class="post-date">
+                                    <h3>02 <span>Mar 2019</span></h3>
+                                </div>
+                                <div class="meta-box">
+                                    <ul class="meta-info">
+                                        <li>By <a href="#">Rubin Santro</a></li>
+                                        <li>In <a href="#">Contemporary</a></li>
+                                    </ul>
+                                </div>
+                                <h3 class="blog-title"><a href="blog-single.html">Low cost interior designing ideas</a></h3>
+                                <div class="text">
+                                    <p>Same as saying through shrinkings from toil & our pain these cases perfectly simple.</p>
+                                    <a class="btn-two" href="#">Read More<span class="flaticon-next"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single blog post-->
+                    <!--Start single blog post-->
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                        <div class="single-blog-post wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
+                            <div class="img-holder">
+                                <img src="/images/blog/latest-b-v1-2.jpg" alt="Awesome Image">
+                                <div class="overlay-style-two"></div>
+                                <div class="overlay">
+                                    <div class="box">
+                                        <div class="link-icon">
+                                            <a href="#"><span class="flaticon-zoom"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-holder">
+                                <div class="post-date">
+                                    <h3>24 <span>Feb 2019</span></h3>
+                                </div>
+                                <div class="meta-box">
+                                    <ul class="meta-info">
+                                        <li>By <a href="#">Mark Richrdson</a></li>
+                                        <li>In <a href="#">Modern Paint</a></li>
+                                    </ul>
+                                </div>
+                                <h3 class="blog-title"><a href="blog-single.html">Commercial design for project</a></h3>
+                                <div class="text">
+                                    <p>Which is the same as saying through shrinking from toil and pain. These cases are perfectly.</p>
+                                    <a class="btn-two" href="#">Read More<span class="flaticon-next"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single blog post-->
+                    <!--Start single blog post-->
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                        <div class="single-blog-post wow fadeInLeft" data-wow-delay="400ms" data-wow-duration="1500ms">
+                            <div class="img-holder">
+                                <img src="/images/blog/latest-b-v1-3.jpg" alt="Awesome Image">
+                                <div class="overlay-style-two"></div>
+                                <div class="overlay">
+                                    <div class="box">
+                                        <div class="link-icon">
+                                            <a href="#"><span class="flaticon-zoom"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-holder">
+                                <div class="post-date">
+                                    <h3>18 <span>Jan 2019</span></h3>
+                                </div>
+                                <div class="meta-box">
+                                    <ul class="meta-info">
+                                        <li>By <a href="#">Rubin Santro</a></li>
+                                        <li>In <a href="#">Contemporary</a></li>
+                                    </ul>
+                                </div>
+                                <h3 class="blog-title"><a href="blog-single.html">Our interior design prediction 2019</a></h3>
+                                <div class="text">
+                                    <p>Every pleasure is to be welcomed every pain avoided. in certain circumstances obligations.</p>
+                                    <a class="btn-two" href="#">Read More<span class="flaticon-next"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single blog post-->
+
+                </div>
+            </div>
+        </section>
+        <!--End latest blog area style2-->
+
+        <!--Start footer area Style4-->
+        <footer class="footer-area style4">
+            <div class="container">
+                <div class="row">
+                    <!--Start single footer widget-->
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mr-3">
+                        <div class="single-footer-widget marbtm50-s4">
+                            <div class="our-info-box">
+                                <div class="footer-logo">
+                                    <a href="index-2.html">
+                                        <img src="/images/footer/footer-logo.png" alt="Awesome Logo">
+                                    </a>
+                                </div>
+                                <!-- <div class="text">
+                                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the blinded by desiremoment.</p>
+                                </div> -->
+                                <div class="follow-us-social-links clearfix">
+                                    <span>Follw Us On:</span>
+                                    <ul>
+                                        <li><a href="#">Facebook</a></li>
+                                        <li><a href="#">Twitter</a></li>
+                                        <li><a href="#">Instagram</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single footer widget-->
+                    <!--Start single footer widget
+                    <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+                        <div class="single-footer-widget s4">
+                            <div class="title-style2">
+                                <h3>Usefull Links</h3>
+                            </div>
+                            <div class="usefull-links">
+                                <ul class="float-left">
+                                    <li><a href="#">Company</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Team</a></li>
+                                    <li><a href="#">Projects</a></li>
+                                    <li><a href="#">Get a Quote</a></li>
+                                </ul>
+                                <ul class="float-left borders-left">
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Testimonials</a></li>
+                                    <li><a href="#">Partners</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    End single footer widget-->
+                    <!--Start single footer widget-->
+                    <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12">
+                        <div class="single-footer-widget pdtop50-s4">
+                            <div class="title-style2">
+                                <h3>Subscribe Us</h3>
+                            </div>
+                            <div class="subscribe-box">
+                                <form class="subscribe-form" action="#">
+                                    <input type="email" name="email" placeholder="Your Email">
+                                    <button class="btn-one" type="submit">Subscribe<span class="flaticon-next"></span></button>
+                                </form>
+                                <div class="text">
+                                    <p><span>*</span>Subscribe us and get latest news and updates</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single footer widget-->
+                </div>
+            </div>
+        </footer>
+        <!--End footer area style4-->
+
+
+        <!--Start footer bottom area-->
+        <section class="footer-bottom-area style3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="copyright-text text-center">
+                            <!-- <p><a href="https://www.templateshub.net" target="_blank">Templates Hub</a></p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End footer bottom area-->
+
+    </div>
+
+
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/isotope.js"></script>
+    <script src="js/jquery.bootstrap-touchspin.js"></script>
+    <script src="js/jquery.countTo.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.enllax.min.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/jquery.paroller.min.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/wow.js"></script>
+
+    <!---
+<script src="js/gmaps.js"></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyB2uu6KHbLc_y7fyAVA4dpqSVM4w9ZnnUw"></script>
+<script src="js/mapapi.js"></script>
+--->
+<script src="/js/app.js"></script>
+    <script src="/js/map-helper.js"></script>
+
+    <script src="/assets/language-switcher/jquery.polyglot.language.switcher.js"></script>
+    <script src="/assets/timepicker/timePicker.js"></script>
+    <script src="/assets/html5lightbox/html5lightbox.js"></script>
+
+    <!--Revolution Slider-->
+    <script src="/plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="/plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="/plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="/plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="/plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="/plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="/plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="/plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="/plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="/js/main-slider-script.js"></script>
+
+    <!-- thm custom script -->
+    <script src="/js/custom.js"></script>
+
+
+
+</body>
+
+
+<!-- index-2 06:43:55 GMT -->
 </html>
