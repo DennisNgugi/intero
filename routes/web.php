@@ -20,6 +20,12 @@ Route::get('/product-detail', function () {
 Route::get('/products', function () {
     return view('products');
 });
+Route::get('/proffesional', function () {
+    return view('proffesional');
+});
+Route::get('/proffesional-view', function () {
+    return view('proffesional-view');
+});
 Route::get('/checkout', function () {
     return view('checkout');
 });
