@@ -14,10 +14,11 @@ const router = new VueRouter({
 })
 Vue.use(VueRouter)
 
-
+// project component
 Vue.component('project-create', require('./components/Projects/ProjectCreate.vue').default);
 Vue.component('project-edit', require('./components/Projects/ProjectEdit.vue').default);
-
+// profile component
+Vue.component('profile', require('./components/Profile/Profile.vue').default);
 
 const app = new Vue({
     el: '#app',

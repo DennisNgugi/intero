@@ -35,6 +35,9 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/project', function () {
     return view('dashboard.projects.create');
 });
+Route::get('/dashboard/profile', function () {
+    return view('dashboard.profile.profile');
+});
 Route::get('/shopping', function () {
     return view('shopping-cart');
 });
