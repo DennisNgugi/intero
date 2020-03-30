@@ -29,6 +29,12 @@ Route::get('/proffesional-view', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
+Route::get('/dashboard', function () {
+    return view('dashboard.layouts.app');
+});
+Route::get('/dashboard/project', function () {
+    return view('dashboard.projects.create');
+});
 Route::get('/shopping', function () {
     return view('shopping-cart');
 });

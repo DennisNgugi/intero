@@ -10,6 +10,10 @@
     <!-- responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- For IE -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/css/app.css">
 
@@ -232,21 +236,21 @@
 
 
 
-            <script src="js/jquery.js"></script>
-            <script src="js/appear.js"></script>
-            <script src="js/bootstrap.bundle.min.js"></script>
-            <script src="js/bootstrap-select.min.js"></script>
-            <script src="js/isotope.js"></script>
-            <script src="js/jquery.bootstrap-touchspin.js"></script>
-            <script src="js/jquery.countTo.js"></script>
-            <script src="js/jquery.easing.min.js"></script>
-            <script src="js/jquery.enllax.min.js"></script>
-            <script src="js/jquery.fancybox.js"></script>
-            <script src="js/jquery.mixitup.min.js"></script>
-            <script src="js/jquery.paroller.min.js"></script>
-            <script src="js/owl.js"></script>
-            <script src="js/validation.js"></script>
-            <script src="js/wow.js"></script>
+            <script src="/js/jquery.js"></script>
+            <script src="/js/appear.js"></script>
+            <script src="/js/bootstrap.bundle.min.js"></script>
+            <script src="/js/bootstrap-select.min.js"></script>
+            <script src="/js/isotope.js"></script>
+            <script src="/js/jquery.bootstrap-touchspin.js"></script>
+            <script src="/js/jquery.countTo.js"></script>
+            <script src="/js/jquery.easing.min.js"></script>
+            <script src="/js/jquery.enllax.min.js"></script>
+            <script src="/js/jquery.fancybox.js"></script>
+            <script src="/js/jquery.mixitup.min.js"></script>
+            <script src="/js/jquery.paroller.min.js"></script>
+            <script src="/js/owl.js"></script>
+            <script src="/js/validation.js"></script>
+            <script src="/js/wow.js"></script>
 
             <!---
         <script src="js/gmaps.js"></script>
