@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Department;
+
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -15,6 +17,15 @@ class ProjectController extends Controller
     public function index()
     {
         //
+        $project = Project::all();
+
+    }
+
+    public function categories(){
+      $dep = Department::all();
+      return response()->json([
+           "department" => $dep
+        ],200);
     }
 
     /**
@@ -24,7 +35,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $department = Department::all();
+        return view('dashboard.projects.create',compact('department'));
     }
 
     /**
@@ -35,7 +47,26 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+          'project_name' => 'required',
+          'description' => 'required',
+          'department' => 'required'
+        ]);
+
+        $p = new Project;
+        $p->project_name = $request->project_name;
+        $p->description = $request->description;
+        $p->slug = str_slug($request->project_name);
+        $p->typical_job_cost = $request->typical_job_cost;
+        $p->cost_details = $request->cost_details;
+
+        $p->save();
+
+        $image = new ProjectImage;
+        $image->project_id = $p->id;
+        $image->images;
+
+        session()->flash('success','Project created succesfully');
     }
 
     /**

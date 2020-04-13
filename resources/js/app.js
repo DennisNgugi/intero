@@ -8,11 +8,30 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+import axios from 'axios'
 //import routes
 const router = new VueRouter({
     mode:'history'
 })
 Vue.use(VueRouter)
+Vue.use(axios)
+Vue.use(Vuex)
+import storeData from "./store/index"
+const store = new Vuex.Store(
+  storeData
+)
+
+import {
+    Form,
+    HasError,
+    AlertError
+} from 'vform'
+
+window.form = Form;
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+
 
 // project component
 Vue.component('project-create', require('./components/Projects/ProjectCreate.vue').default);
@@ -22,4 +41,5 @@ Vue.component('profile', require('./components/Profile/Profile.vue').default);
 
 const app = new Vue({
     el: '#app',
+    store,
 });

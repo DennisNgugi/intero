@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+
+@section('departmentList')
+@foreach($department as $d)
+<li><a href="">{{$d->department_name}}</a></li>
+@endforeach
+
+@stop
         <!--Main Slider-->
         <section class="main-slider style3">
             <div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">

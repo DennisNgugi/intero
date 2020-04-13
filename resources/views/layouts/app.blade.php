@@ -97,13 +97,8 @@
                                 </li>
                                 <li class="dropdown"><a href="project.html">Find a Pro</a>
                                     <ul>
-                                        <li><a href="project.html">Classic View 01</a></li>
-                                        <li><a href="project-v2.html">Classic View 02</a></li>
-                                        <li><a href="project-v3.html">Modern View 01</a></li>
-                                        <li><a href="project-v4.html">Modern View 02</a></li>
-                                        <li><a href="project-v5.html">Fullwidth 01</a></li>
-                                        <li><a href="project-v6.html">Fulldwidth 02</a></li>
-                                        <li><a href="project-single.html">Projects Single</a></li>
+
+                                      @yield('departmentList')
                                     </ul>
                                 </li>
 
