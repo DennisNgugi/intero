@@ -15,9 +15,9 @@ class CreateProjectImagesTable extends Migration
     {
         Schema::create('project_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('images');
             $table->integer('project_id')->unsigned()->nullable();
             $table->foreign('project_id')->references('id')->on('projects')->onUpdate('cascade')->onDelete('set null');
+            $table->string('project_image_path');
             $table->timestamps();
         });
     }

@@ -7,6 +7,8 @@ use Image;
 use DB;
 use App\Project;
 use App\Department;
+use Storage;
+use App\ProjectImage;
 
 use Illuminate\Http\Request;
 
@@ -55,23 +57,46 @@ class ProjectController extends Controller
         $request->validate([
           'project_name' => 'required',
           'description' => 'required',
-          'department' => 'required'
+          'category' => 'required'
         ]);
 
         $p = new Project;
         $p->project_name = $request->project_name;
         $p->description = $request->description;
+        $p->department_id = $request->category;
         $p->slug = str_slug($request->project_name);
-        $p->typical_job_cost = $request->typical_job_cost;
+        $p->typical_job_cost = $request->cost;
         $p->cost_details = $request->cost_details;
 
         $p->save();
 
-        $image = new ProjectImage;
-        $image->project_id = $p->id;
-        $image->images;
+          // upload images
+          if($request->images){
+            $images = $request->images;
+            // loop through each image
+            foreach($images as $img){
+              $projectName= $p->project_name;
 
-        session()->flash('success','Project created succesfully');
+              //$imagePath = Storage::disk('uploads')->put($projectName . '/posts', $img);
+
+              // crop the images
+              //Image::make($img)->resize(750,500)->save($imagePath)->encode();
+               $image = Image::make($img)->fit(300);
+              $imagePath = Storage::disk('uploads')->put($projectName.'/posts', (string) $image->encode());
+              if($imagePath){
+                $image = new ProjectImage;
+                $image->project_id = $p->id;
+                $image->project_image_path = '/uploads/'. $imagePath;
+                $image->save();
+             }
+             else{
+               print_r('error');
+             }
+            }
+          }
+
+
+
     }
 
     /**
