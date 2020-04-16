@@ -76,17 +76,13 @@ class ProjectController extends Controller
             // loop through each image
             foreach($images as $img){
               $projectName= $p->project_name;
-
-              //$imagePath = Storage::disk('uploads')->put($projectName . '/posts', $img);
-
-              // crop the images
-              //Image::make($img)->resize(750,500)->save($imagePath)->encode();
-               $image = Image::make($img)->fit(300);
-              $imagePath = Storage::disk('uploads')->put($projectName.'/posts', (string) $image->encode());
-              if($imagePath){
+              $filename = $p->id.'-'.$projectName.'-'.time().'-'.$img->getClientOriginalName();
+              $location ='uploads/'.$filename;
+              Image::make($img)->resize(750, 500)->save($location);
+              if($location){
                 $image = new ProjectImage;
                 $image->project_id = $p->id;
-                $image->project_image_path = '/uploads/'. $imagePath;
+                $image->project_image_path = '/'.$location;
                 $image->save();
              }
              else{

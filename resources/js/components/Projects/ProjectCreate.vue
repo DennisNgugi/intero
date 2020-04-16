@@ -70,10 +70,10 @@
                                  :on-preview="handlePictureCardPreview"
                                  :on-change="updateImageList"
                                  :auto-upload="false"
-                                 name="file[]"
+
                                  multiple
                                  :limit="5"
-                                 :on-exceed="handleExceed">
+                            >
                                  <i class="el-icon-plus"></i>
                                 </el-upload>
                                 <el-dialog :visible.sync="dialogVisible">
@@ -140,9 +140,7 @@ export default {
             this.dialogImageUrl = file.url;
             this.dialogVisible = true;
         },
-        handleExceed(file, images) {
-            this.$message.warning(`The limit  is 2, you selected ${files.length} files this time, add up to ${files.length + images.length} totally`)
-        },
+
 
         createProject() {
             this.isCreatingProject = true;
@@ -160,7 +158,7 @@ export default {
             form.append('cost', this.post.cost)
             form.append('cost_details', this.post.cost_details)
             $.each(this.post.images, function(key, image) {
-                form.append('images[${key}]', image)
+                form.append(`images[${key}]`, image)
             })
             axios.post('/api/project', form, config)
                 .then((response) => {

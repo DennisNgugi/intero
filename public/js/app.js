@@ -3758,9 +3758,6 @@ __webpack_require__.r(__webpack_exports__);
       this.dialogImageUrl = file.url;
       this.dialogVisible = true;
     },
-    handleExceed: function handleExceed(file, images) {
-      this.$message.warning("The limit  is 2, you selected ".concat(files.length, " files this time, add up to ").concat(files.length + images.length, " totally"));
-    },
     createProject: function createProject() {
       var _this2 = this;
 
@@ -3777,7 +3774,7 @@ __webpack_require__.r(__webpack_exports__);
       form.append('cost', this.post.cost);
       form.append('cost_details', this.post.cost_details);
       $.each(this.post.images, function (key, image) {
-        form.append('images[${key}]', image);
+        form.append("images[".concat(key, "]"), image);
       });
       axios.post('/api/project', form, config).then(function (response) {
         _this2.post.project_name = '';
@@ -101616,10 +101613,8 @@ var render = function() {
                           "on-preview": _vm.handlePictureCardPreview,
                           "on-change": _vm.updateImageList,
                           "auto-upload": false,
-                          name: "file[]",
                           multiple: "",
-                          limit: 5,
-                          "on-exceed": _vm.handleExceed
+                          limit: 5
                         }
                       },
                       [_c("i", { staticClass: "el-icon-plus" })]
