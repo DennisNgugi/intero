@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Resources\ProjectCollection;
+use App\Http\Resources\DepartmentCollection;
+use Image;
+use DB;
 use App\Project;
 use App\Department;
 
@@ -17,15 +20,17 @@ class ProjectController extends Controller
     public function index()
     {
         //
-        $project = Project::all();
+        return new ProjectCollection(Project::latest()->get());
 
     }
 
     public function categories(){
       $dep = Department::all();
-      return response()->json([
-           "department" => $dep
-        ],200);
+      return response([
+          'department' => new DepartmentCollection($dep),
+      ],
+      200
+  );
     }
 
     /**

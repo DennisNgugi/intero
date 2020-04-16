@@ -4,7 +4,7 @@
         <div class="shop-page-title">
             <div class="title">Add <span>project</span></div>
         </div>
-        <form @submit.prevent="projectCreate">
+        <form>
             <div class="row">
                 <div class="col-md-12">
 
@@ -21,7 +21,7 @@
                 <div class="col-md-12">
                     <div class="field-label">Project description*</div>
                     <div :class="['field_input',allerrors.description ? 'has-error' : '']">
-                        <textarea  class="form-control" v-model="post.description" rows="8" cols="80"></textarea>
+                        <textarea class="form-control" v-model="post.description" rows="8" cols="80"></textarea>
                         <span v-if="allerrors.description" :class="['label label-danger']">
                             <p style="color:red;">{{ allerrors.description[0]}}</p>
                         </span>
@@ -44,7 +44,7 @@
                 <div class="col-md-12">
                     <div class="field-label">Typical Job Cost *</div>
                     <div :class="['field_input',allerrors.cost ? 'has-error' : '']">
-                        <input type="text"  class="form-control" v-model="post.cost" placeholder="">
+                        <input type="text" class="form-control" v-model="post.cost" placeholder="">
                         <span v-if="allerrors.cost" :class="['label label-danger']">
                             <p style="color:red;">{{ allerrors.cost[0]}}</p>
                         </span>
@@ -62,12 +62,35 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <div :class="['field_input',allerrors.images ? 'has-error' : '']">
-                        <input type="file" class="form-control" multiple @onChange="fieldChange">
+                    <div class="field-label">Project Images *</div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div :class="['field_input',allerrors.images ? 'has-error' : '']">
+                                <el-upload action="/" list-type="picture-card"
+                                 :on-preview="handlePictureCardPreview"
+                                 :on-change="updateImageList"
+                                 :auto-upload="false"
+                                 name="file[]"
+                                 multiple
+                                 :limit="5"
+                                 :on-exceed="handleExceed">
+                                 <i class="el-icon-plus"></i>
+                                </el-upload>
+                                <el-dialog :visible.sync="dialogVisible">
+                                    <img width="100%" :src="dialogImageUrl" alt="">
+                                </el-dialog>
+
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
                 <div class="col-md-3 my-3">
-                    <input type="submit" class="btn btn-primary" value="Submit">
+                    <button type="button" @click="createProject" class="btn btn-primary btn-sm" name="button">
+                        {{ isCreatingProject ? 'Posting...' : 'Create Project'}}
+                    </button>
+
                 </div>
 
             </div>
@@ -84,6 +107,9 @@
 export default {
     data() {
         return {
+            isCreatingProject: false,
+            dialogImageUrl: '',
+            dialogVisible: false,
             post: {
                 category: '',
                 project_name: '',
@@ -93,32 +119,33 @@ export default {
                 images: [],
             },
             allerrors: [],
-            categories:[],
+            categories: [],
         }
     },
 
     methods: {
-       fetchDepartments(){
-           axios.get('/categories')
-           .then((resp)=>{
-             this.categories = resp.data.department
-           }).catch((error)=>{
-             console.log(error)
-           })
-       },
-        fieldChange(e) {
-            let selectedFile = e.target.files[0]
-
-            if (!selectedFile.length) {
-                return false;
-            }
-            for (let i = 0; i < selectedFile.length; i++) {
-                this.post.images.push(selectedFile[i]);
-            }
-            console.log(e)
+        fetchDepartments() {
+            axios.get('/api/categories')
+                .then((resp) => {
+                    this.categories = resp.data.department
+                }).catch((error) => {
+                    console.log(error)
+                })
         },
-        projectCreate() {
 
+        updateImageList(file) {
+            this.post.images.push(file.raw);
+        },
+        handlePictureCardPreview() {
+            this.dialogImageUrl = file.url;
+            this.dialogVisible = true;
+        },
+        handleExceed(file, images) {
+            this.$message.warning(`The limit  is 2, you selected ${files.length} files this time, add up to ${files.length + images.length} totally`)
+        },
+
+        createProject() {
+            this.isCreatingProject = true;
             form = new FormData();
 
             const config = {
@@ -132,9 +159,10 @@ export default {
             form.append('description', this.post.description)
             form.append('cost', this.post.cost)
             form.append('cost_details', this.post.cost_details)
-            form.append('images[]', this.post.images)
-
-            axios.post('/project/create', form, config)
+            $.each(this.post.images, function(key, image) {
+                form.append('images[${key}]', image)
+            })
+            axios.post('/api/project', form, config)
                 .then((response) => {
                     this.post.project_name = '';
                     this.post.description = '';
@@ -142,16 +170,18 @@ export default {
                     this.post.cost = '';
                     this.post.cost_details = '';
                     this.post.images = '';
+                    this.isCreatingProject = false;
                 })
                 .catch((error) => {
                     this.allerrors = error.response.data.errors;
+                    this.isCreatingProject = false;
                 })
 
         }
     },
-    mounted(){
+    mounted() {
 
-    this.fetchDepartments();
+        this.fetchDepartments();
 
     },
 
@@ -159,5 +189,32 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style>
+.avata-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-uploader .el-upload:hover {
+    border-color: #409eff;
+
+}
+
+.avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+}
+
+.avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+}
 </style>

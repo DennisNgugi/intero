@@ -12,7 +12,6 @@
 */
 
 Route::get('/','HomeController@homePage');
-Route::get('/categories','ProjectController@categories');
 Route::get('/product-detail', function () {
     return view('product-detail');
 });
