@@ -3723,6 +3723,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3735,7 +3749,8 @@ __webpack_require__.r(__webpack_exports__);
         description: '',
         cost: '',
         cost_details: '',
-        images: []
+        images: [],
+        thumbnail: ''
       },
       allerrors: [],
       categories: []
@@ -3758,6 +3773,11 @@ __webpack_require__.r(__webpack_exports__);
       this.dialogImageUrl = file.url;
       this.dialogVisible = true;
     },
+    // thumbnail
+    onImageChange: function onImageChange(e) {
+      console.log(e.target.files[0]);
+      this.post.thumbnail = e.target.files[0];
+    },
     createProject: function createProject() {
       var _this2 = this;
 
@@ -3773,6 +3793,7 @@ __webpack_require__.r(__webpack_exports__);
       form.append('description', this.post.description);
       form.append('cost', this.post.cost);
       form.append('cost_details', this.post.cost_details);
+      form.append('thumbnail', this.post.thumbnail);
       $.each(this.post.images, function (key, image) {
         form.append("images[".concat(key, "]"), image);
       });
@@ -3782,7 +3803,8 @@ __webpack_require__.r(__webpack_exports__);
         _this2.post.category = '';
         _this2.post.cost = '';
         _this2.post.cost_details = '';
-        _this2.post.images = '';
+        _this2.post.images = [];
+        _this2.post.thumbnail = '';
         _this2.isCreatingProject = false;
       })["catch"](function (error) {
         _this2.allerrors = error.response.data.errors;
@@ -10265,7 +10287,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.avata-uploader .el-upload {\r\n    border: 1px dashed #d9d9d9;\r\n    border-radius: 6px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    overflow: hidden;\n}\n.avatar-uploader .el-upload:hover {\r\n    border-color: #409eff;\n}\n.avatar-uploader-icon {\r\n    font-size: 28px;\r\n    color: #8c939d;\r\n    width: 178px;\r\n    height: 178px;\r\n    line-height: 178px;\r\n    text-align: center;\n}\n.avatar {\r\n    width: 178px;\r\n    height: 178px;\r\n    display: block;\n}\n", ""]);
+exports.push([module.i, "\n.avatar-uploader .el-upload {\r\n    border: 1px dashed #d9d9d9;\r\n    border-radius: 6px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    overflow: hidden;\n}\n.avatar-uploader .el-upload:hover {\r\n    border-color: #409eff;\n}\n.avatar-uploader-icon {\r\n    font-size: 28px;\r\n    color: #8c939d;\r\n    width: 178px;\r\n    height: 178px;\r\n    line-height: 178px;\r\n    text-align: center;\n}\n.avatar {\r\n    width: 178px;\r\n    height: 178px;\r\n    display: block;\n}\n", ""]);
 
 // exports
 
@@ -101331,7 +101353,7 @@ var render = function() {
     _c("div", { staticClass: "form billing-info" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("form", [
+      _c("form", { attrs: { enctype: "multipart/form-data" } }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-md-12" }, [
             _c("div", { staticClass: "field-label" }, [
@@ -101584,6 +101606,47 @@ var render = function() {
                       ])
                     ])
                   : _vm._e()
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "field-label" }, [_vm._v("Thumbnail *")]),
+            _vm._v(" "),
+            _vm.post.image ? _c("div", { staticClass: "col-md-3" }) : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                class: [
+                  "field_input",
+                  _vm.allerrors.thumbnail ? "has-error" : ""
+                ]
+              },
+              [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "file", "aria-describedby": "fileHelp" },
+                  on: { change: _vm.onImageChange }
+                }),
+                _vm._v(" "),
+                _vm.allerrors.thumbnail
+                  ? _c("span", { class: ["label label-danger"] }, [
+                      _c("p", { staticStyle: { color: "red" } }, [
+                        _vm._v(_vm._s(_vm.allerrors.thumbnail[0]))
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "rounded",
+                  attrs: {
+                    src: _vm.post.thumbnail,
+                    height: "100",
+                    width: "100",
+                    alt: ""
+                  }
+                })
               ]
             )
           ]),

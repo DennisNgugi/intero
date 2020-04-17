@@ -4,7 +4,7 @@
         <div class="shop-page-title">
             <div class="title">Add <span>project</span></div>
         </div>
-        <form>
+        <form enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-12">
 
@@ -62,6 +62,20 @@
                     </div>
                 </div>
                 <div class="col-md-12">
+                    <div class="field-label">Thumbnail *</div>
+                    <div class="col-md-3" v-if="post.image">
+                    </div>
+                            <div :class="['field_input',allerrors.thumbnail ? 'has-error' : '']">
+                              <input type="file" v-on:change="onImageChange" class="form-control"  aria-describedby="fileHelp">
+                                <span v-if="allerrors.thumbnail" :class="['label label-danger']"><p style="color:red;">{{ allerrors.thumbnail[0]}}</p></span>
+                                <img :src="post.thumbnail" class="rounded" height="100" width="100" alt="">
+
+                            </div>
+
+
+
+                </div>
+                <div class="col-md-12">
                     <div class="field-label">Project Images *</div>
                     <div class="card">
                         <div class="card-body">
@@ -117,6 +131,7 @@ export default {
                 cost: '',
                 cost_details: '',
                 images: [],
+                thumbnail:'',
             },
             allerrors: [],
             categories: [],
@@ -140,9 +155,15 @@ export default {
             this.dialogImageUrl = file.url;
             this.dialogVisible = true;
         },
-
+      // thumbnail
+                 onImageChange(e){
+                console.log(e.target.files[0]);
+                this.post.thumbnail = e.target.files[0];
+            },
 
         createProject() {
+
+
             this.isCreatingProject = true;
             form = new FormData();
 
@@ -157,6 +178,7 @@ export default {
             form.append('description', this.post.description)
             form.append('cost', this.post.cost)
             form.append('cost_details', this.post.cost_details)
+            form.append('thumbnail', this.post.thumbnail)
             $.each(this.post.images, function(key, image) {
                 form.append(`images[${key}]`, image)
             })
@@ -167,7 +189,8 @@ export default {
                     this.post.category = '';
                     this.post.cost = '';
                     this.post.cost_details = '';
-                    this.post.images = '';
+                    this.post.images = [];
+                    this.post.thumbnail = '';
                     this.isCreatingProject = false;
                 })
                 .catch((error) => {
@@ -188,7 +211,7 @@ export default {
 </script>
 
 <style>
-.avata-uploader .el-upload {
+.avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
     cursor: pointer;

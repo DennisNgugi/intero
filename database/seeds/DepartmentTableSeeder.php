@@ -11,7 +11,8 @@ class DepartmentTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+  
+
         $dep = [
         'Outdoor & Garden',
         'Home improvement',
@@ -21,7 +22,7 @@ class DepartmentTableSeeder extends Seeder
         ];
 
         foreach ($dep as $d) {
-             Department::create(['department_name' => $d]);
+             Department::create(['department_name' => $d, 'slug' => str_slug($d)]);
         }
     }
 }

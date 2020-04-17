@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Project;
 use App\Department;
 use Illuminate\Http\Request;
 
@@ -22,9 +22,11 @@ class DepartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function departmentview($id, $slug)
     {
-        //
+     $dep = Project::where('department_id','=',$id)->get();
+     return view('department.show',compact('dep'));
+  //  return $department->slug;
     }
 
     /**

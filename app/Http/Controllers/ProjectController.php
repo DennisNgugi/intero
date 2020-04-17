@@ -57,7 +57,8 @@ class ProjectController extends Controller
         $request->validate([
           'project_name' => 'required',
           'description' => 'required',
-          'category' => 'required'
+          'category' => 'required',
+
         ]);
 
         $p = new Project;
@@ -68,7 +69,22 @@ class ProjectController extends Controller
         $p->typical_job_cost = $request->cost;
         $p->cost_details = $request->cost_details;
 
-        $p->save();
+        // upload thumbnail
+          if($request->hasFile('thumbnail')){
+            $thumb = $request->file('thumbnail');
+            $filename = $request->project_name.'-'.time().'-'.$thumb->getClientOriginalExtension();
+            $location ='thumbnail/'.$filename;
+            Image::make($thumb)->resize(370, 240)->save($location);
+
+
+              $p->thumbnail = '/'.$location;
+
+          }
+              $p->save();
+
+
+
+
 
           // upload images
           if($request->images){
@@ -78,7 +94,7 @@ class ProjectController extends Controller
               $projectName= $p->project_name;
               $filename = $p->id.'-'.$projectName.'-'.time().'-'.$img->getClientOriginalName();
               $location ='uploads/'.$filename;
-              Image::make($img)->resize(750, 500)->save($location);
+              Image::make($img)->resize(400, 470)->save($location);
               if($location){
                 $image = new ProjectImage;
                 $image->project_id = $p->id;
@@ -86,7 +102,7 @@ class ProjectController extends Controller
                 $image->save();
              }
              else{
-               print_r('error');
+               print_r('error.Check if uploads folder is available');
              }
             }
           }

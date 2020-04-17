@@ -22,6 +22,7 @@ class CreateProjectsTable extends Migration
             $table->foreign('department_id')->references('id')->on('departments')->onUpdate('cascade')->onDelete('set null');
             $table->string('typical_job_cost')->nullable();
             $table->text('cost_details')->nullable();
+            $table->string('thumbnail');
             $table->timestamps();
         });
     }

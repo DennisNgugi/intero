@@ -3,7 +3,7 @@
 
 @section('departmentList')
 @foreach($department as $d)
-<li><a href="">{{$d->department_name}}</a></li>
+<li><a href="/department/{{$d->id}}/{{$d->slug}}">{{$d->department_name}}</a></li>
 @endforeach
 
 @stop
@@ -374,6 +374,7 @@
                 </div>
                 <div class="row">
                     <!--Start single blog post-->
+                    @foreach($project as $p)
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                         <div class="single-blog-post wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="img-holder">
@@ -397,81 +398,17 @@
                                         <li>In <a href="#">Contemporary</a></li>
                                     </ul>
                                 </div>
-                                <h3 class="blog-title"><a href="blog-single.html">Low cost interior designing ideas</a></h3>
+                                <h3 class="blog-title"><a href="blog-single.html">{{$p->project_name}}</a></h3>
                                 <div class="text">
-                                    <p>Same as saying through shrinkings from toil & our pain these cases perfectly simple.</p>
+                                    <p>{{$p->description}}</p>
                                     <a class="btn-two" href="#">Read More<span class="flaticon-next"></span></a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <!--End single blog post-->
-                    <!--Start single blog post-->
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-                        <div class="single-blog-post wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
-                            <div class="img-holder">
-                                <img src="/images/blog/latest-b-v1-2.jpg" alt="Awesome Image">
-                                <div class="overlay-style-two"></div>
-                                <div class="overlay">
-                                    <div class="box">
-                                        <div class="link-icon">
-                                            <a href="#"><span class="flaticon-zoom"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-holder">
-                                <div class="post-date">
-                                    <h3>24 <span>Feb 2019</span></h3>
-                                </div>
-                                <div class="meta-box">
-                                    <ul class="meta-info">
-                                        <li>By <a href="#">Mark Richrdson</a></li>
-                                        <li>In <a href="#">Modern Paint</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="blog-title"><a href="blog-single.html">Commercial design for project</a></h3>
-                                <div class="text">
-                                    <p>Which is the same as saying through shrinking from toil and pain. These cases are perfectly.</p>
-                                    <a class="btn-two" href="#">Read More<span class="flaticon-next"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End single blog post-->
-                    <!--Start single blog post-->
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-                        <div class="single-blog-post wow fadeInLeft" data-wow-delay="400ms" data-wow-duration="1500ms">
-                            <div class="img-holder">
-                                <img src="/images/blog/latest-b-v1-3.jpg" alt="Awesome Image">
-                                <div class="overlay-style-two"></div>
-                                <div class="overlay">
-                                    <div class="box">
-                                        <div class="link-icon">
-                                            <a href="#"><span class="flaticon-zoom"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-holder">
-                                <div class="post-date">
-                                    <h3>18 <span>Jan 2019</span></h3>
-                                </div>
-                                <div class="meta-box">
-                                    <ul class="meta-info">
-                                        <li>By <a href="#">Rubin Santro</a></li>
-                                        <li>In <a href="#">Contemporary</a></li>
-                                    </ul>
-                                </div>
-                                <h3 class="blog-title"><a href="blog-single.html">Our interior design prediction 2019</a></h3>
-                                <div class="text">
-                                    <p>Every pleasure is to be welcomed every pain avoided. in certain circumstances obligations.</p>
-                                    <a class="btn-two" href="#">Read More<span class="flaticon-next"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End single blog post-->
+
 
                 </div>
             </div>

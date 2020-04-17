@@ -15,6 +15,7 @@ Route::get('/','HomeController@homePage');
 Route::get('/product-detail', function () {
     return view('product-detail');
 });
+Route::get('/department/{id}/{slug}','DepartmentController@departmentview');
 Route::get('/products', function () {
     return view('products');
 });
