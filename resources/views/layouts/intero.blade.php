@@ -101,8 +101,27 @@
                                       @yield('departmentList')
                                     </ul>
                                 </li>
+                                @if(!Auth::check())
+                                <li><a href="/register">Register</a></li>
+                                <li><a href="/login">Login</a></li>
+                              @else
+                                <li class="dropdown"><a href="services.html">{{Auth::user()->name}}</a>
+                                    <ul>
+                                        <li><a href="/dashboard/profile">View account</a></li>
+                                        <li><a href="/dashboard/project">Add project</a></li>
+                                        <li>  <a href="{{ route('logout') }}"
+                                             onclick="event.preventDefault();
+                                                           document.getElementById('logout-form').submit();">
+                                              Logout
+                                          </a>
 
-                                <li><a href="contact.html">Contact</a></li>
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                              @csrf
+                                          </form></li>
+
+                                    </ul>
+                                </li>
+                              @endif
                             </ul>
                         </div>
                     </nav>
@@ -123,9 +142,9 @@
                         <div class="cart-box">
                             <a href="shoping-cart.html"><span class="icon-bag"><span class="number">0</span></span></a>
                         </div>
-                        <div class="button">
-                            <a class="btn-one" href="#">Join as a vendor<span class="flaticon-next"></span></a>
-                        </div>
+                        {{-- <div class="button">
+                            <a class="btn btn-danger btn-sm" href="/register">Join as a vendor<span class="flaticon-next"></span></a>
+                        </div> --}}
                     </div>
                 </div>
             </div>
