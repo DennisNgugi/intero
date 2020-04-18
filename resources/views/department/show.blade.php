@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.intero')
 @section('content')       <!--Start breadcrumb area-->
 
         <!--Start blog area-->
@@ -21,7 +21,7 @@
                                             <li>Call <a href="#">071974014</a></li>
                                             <li>Location <a href="#">Nairobi</a></li>
                                             <li>Reviews <a href="#"></a></li>
-                                            
+
                                         </ul>
                                     </div>
                                     <div class="text">

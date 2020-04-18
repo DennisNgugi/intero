@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.intero')
 @section('content')
 <!--Start breadcrumb area-->
 <section class="breadcrumb-area style2" style="background-image: url(/images/resources/breadcrumb-bg-2.jpg);">
@@ -9,7 +9,7 @@
                     <div class="title-s2 text-center">
                         <h1>Cornerstone Architects</h1>
                     </div>
-          
+
                 </div>
             </div>
         </div>

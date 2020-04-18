@@ -1,17 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Department;
-use App\Project;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function homePage(){
-      $department = Department::all();
-      $project = Project::all();
-      return view('welcome',compact('department','project'));
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
-
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('home');
+    }
 }

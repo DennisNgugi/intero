@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','HomeController@homePage');
+Route::get('/','WelcomeController@homePage');
 Route::get('/product-detail', function () {
     return view('product-detail');
 });
@@ -41,3 +41,7 @@ Route::get('/dashboard/profile', function () {
 Route::get('/shopping', function () {
     return view('shopping-cart');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
