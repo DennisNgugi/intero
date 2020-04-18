@@ -19,6 +19,11 @@ class CreateDepartmentsTable extends Migration
             $table->string('slug');
             $table->timestamps();
         });
+
+        // auto seed departments
+        Artisan::call('db:seed', [
+       '--class' => DepartmentTableSeeder::class
+   ]);
     }
 
     /**

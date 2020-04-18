@@ -11,7 +11,7 @@
                             @foreach($dep as $d)
                             <div class="single-blog-post style4 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
                                 <div class="img-holder">
-                                    <img src="/images/blog/v2-3.jpg" height="250px" width="350px" alt="Awesome Image">
+                                    <img src="{{$d->thumbnail}}" height="200px" width="300px" alt="Awesome Image">
 
                                 </div>
                                 <div class="text-holder">
@@ -21,7 +21,7 @@
                                             <li>Call <a href="#">071974014</a></li>
                                             <li>Location <a href="#">Nairobi</a></li>
                                             <li>Reviews <a href="#"></a></li>
-
+                                            
                                         </ul>
                                     </div>
                                     <div class="text">

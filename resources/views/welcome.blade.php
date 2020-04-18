@@ -378,7 +378,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                         <div class="single-blog-post wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="img-holder">
-                                <img src="/images/blog/latest-b-v1-1.jpg" alt="Awesome Image">
+                                <img src="{{$p->thumbnail}}" alt="Awesome Image">
                                 <div class="overlay-style-two"></div>
                                 <div class="overlay">
                                     <div class="box">
