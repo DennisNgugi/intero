@@ -28,9 +28,15 @@ Route::get('/proffesional-view', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
+Route::get('/shopping', function () {
+    return view('shopping-cart');
+});
+
 Route::group(['middleware' => ['auth']],function (){
   Route::resource('project','ProjectController');
-
+  // Route::get('/profile/{id}/{slug}','ProfileController@index');
+  // Route::post('/profile/{id}/{slug}','ProfileController@store');
+Route::resource('/profile','ProfileController');
   Route::get('/dashboard/project', function () {
       return view('dashboard.projects.create');
   });
@@ -40,9 +46,6 @@ Route::group(['middleware' => ['auth']],function (){
   });
 });
 
-Route::get('/shopping', function () {
-    return view('shopping-cart');
-});
 
 Auth::routes();
 

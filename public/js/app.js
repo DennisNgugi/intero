@@ -3605,7 +3605,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      profile: [],
+      allerrors: []
+    };
+  },
+  methods: {
+    getProfile: function getProfile() {
+      var _this = this;
+
+      axios.get('/profile').then(function (resp) {
+        _this.profile = resp.data;
+      });
+    },
+    updateProfile: function updateProfile() {
+      var _this2 = this;
+
+      var self = this;
+      form = new FormData();
+      form.append('id', self.profile.id);
+      form.append('name', self.profile.name);
+      form.append('company_name', self.profile.company_name);
+      form.append('about', self.profile.about);
+      form.append('services_offered', self.profile.services_offered);
+      form.append('location', self.profile.location);
+      form.append('website', self.profile.website);
+      axios.post('/profile', form).then(function (resp) {
+        console.log('uploaded succesfully');
+
+        _this2.getProfile();
+
+        self.allerrors = [];
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getProfile();
+  }
+});
 
 /***/ }),
 
@@ -101207,126 +101252,239 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "col-xl-8 col-lg-12 col-md-12 col-sm-12" }, [
+    _c("div", { staticClass: "form billing-info" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.updateProfile($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "field-label" }, [_vm._v("Username")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-input" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.profile.name,
+                      expression: "profile.name"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.profile.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.profile, "name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "field-label" }, [
+                _vm._v("Company name")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-input" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.profile.company_name,
+                      expression: "profile.company_name"
+                    }
+                  ],
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.profile.company_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.profile, "company_name", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "field-label" }, [
+                _vm._v("About/Company description")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-input" }, [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.profile.about,
+                      expression: "profile.about"
+                    }
+                  ],
+                  attrs: { rows: "8", cols: "80" },
+                  domProps: { value: _vm.profile.about },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.profile, "about", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("div", { staticClass: "field-label" }, [
+                _vm._v("Services provided")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-input" }, [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.profile.services_offered,
+                      expression: "profile.services_offered"
+                    }
+                  ],
+                  attrs: { rows: "8", cols: "80" },
+                  domProps: { value: _vm.profile.services_offered },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.profile,
+                        "services_offered",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("div", { staticClass: "field-label" }, [_vm._v("Location")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-input" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.profile.location,
+                      expression: "profile.location"
+                    }
+                  ],
+                  attrs: { type: "text", placeholder: "" },
+                  domProps: { value: _vm.profile.location },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.profile, "location", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-md-6" }, [
+              _c("div", { staticClass: "field-label" }, [_vm._v("Website")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-input" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.profile.website,
+                      expression: "profile.website"
+                    }
+                  ],
+                  attrs: { type: "text", placeholder: "" },
+                  domProps: { value: _vm.profile.website },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.profile, "website", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2)
+          ])
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-xl-8 col-lg-12 col-md-12 col-sm-12" },
-      [
-        _c("div", { staticClass: "form billing-info" }, [
-          _c("div", { staticClass: "shop-page-title" }, [
-            _c("div", { staticClass: "title" }, [
-              _vm._v("Personal"),
-              _c("span", [_vm._v("Profile")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("form", { attrs: { method: "post", action: "#" } }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "field-label" }, [
-                  _vm._v("Company name")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field-input" }, [
-                  _c("input", {
-                    attrs: {
-                      type: "text",
-                      name: "company_name",
-                      placeholder: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "field-label" }, [
-                  _vm._v("About/Company description")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field-input" }, [
-                  _c("textarea", {
-                    attrs: { name: "description", rows: "8", cols: "80" }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "field-label" }, [
-                  _vm._v("Areas served")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field-input" }, [
-                  _c("textarea", {
-                    attrs: { name: "areas_served", rows: "8", cols: "80" }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "field-label" }, [
-                  _vm._v("Services provided")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field-input" }, [
-                  _c("textarea", {
-                    attrs: { name: "services", rows: "8", cols: "80" }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c("div", { staticClass: "field-label" }, [_vm._v("Location")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field-input" }, [
-                  _c("input", {
-                    attrs: { type: "text", name: "cost", placeholder: "" }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6" }, [
-                _c("div", { staticClass: "field-label" }, [_vm._v("Website")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field-input" }, [
-                  _c("input", {
-                    attrs: {
-                      type: "text",
-                      name: "cost_details",
-                      placeholder: ""
-                    }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12" }, [
-                _c("div", { staticClass: "field-label" }, [
-                  _vm._v("Profile image")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "field-input" }, [
-                  _c("input", {
-                    attrs: { type: "file", name: "images", placeholder: "" }
-                  })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-3 my-3" }, [
-                _c("input", {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "submit", name: "", value: "Submit" }
-                })
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "shop-page-title" }, [
+      _c("div", { staticClass: "title" }, [
+        _vm._v("Personal"),
+        _c("span", [_vm._v("Profile")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "field-label" }, [_vm._v("Profile image")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "field-input" }, [
+        _c("input", {
+          attrs: { type: "file", name: "images", placeholder: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-3 my-3" }, [
+      _c("input", {
+        staticClass: "btn btn-primary",
+        attrs: { type: "submit", value: "Submit" }
+      })
+    ])
   }
 ]
 render._withStripped = true
