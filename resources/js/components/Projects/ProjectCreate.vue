@@ -161,8 +161,8 @@ export default {
                 this.post.thumbnail = e.target.files[0];
             },
 
-        createProject() {
-
+        createProject(e) {
+          e.preventDefault();
 
             this.isCreatingProject = true;
             form = new FormData();
@@ -182,7 +182,7 @@ export default {
             $.each(this.post.images, function(key, image) {
                 form.append(`images[${key}]`, image)
             })
-            axios.post('/api/project', form, config)
+            axios.post('/project', form, config)
                 .then((response) => {
                     this.post.project_name = '';
                     this.post.description = '';

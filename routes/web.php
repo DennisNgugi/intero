@@ -28,16 +28,18 @@ Route::get('/proffesional-view', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard.layouts.app');
-});
-Route::get('/dashboard/project', function () {
-    return view('dashboard.projects.create');
+Route::group(['middleware' => ['auth']],function (){
+  Route::resource('project','ProjectController');
+
+  Route::get('/dashboard/project', function () {
+      return view('dashboard.projects.create');
+  });
+
+  Route::get('/dashboard/profile', function () {
+      return view('dashboard.profile.profile');
+  });
 });
 
-Route::get('/dashboard/profile', function () {
-    return view('dashboard.profile.profile');
-});
 Route::get('/shopping', function () {
     return view('shopping-cart');
 });

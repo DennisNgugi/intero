@@ -5,10 +5,12 @@ use App\Http\Resources\ProjectCollection;
 use App\Http\Resources\DepartmentCollection;
 use Image;
 use DB;
+use App\User;
 use App\Project;
 use App\Department;
 use Storage;
 use App\ProjectImage;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -60,6 +62,7 @@ class ProjectController extends Controller
           'category' => 'required',
 
         ]);
+        //  $user_id =  Auth::user()->id;
 
         $p = new Project;
         $p->project_name = $request->project_name;
@@ -68,6 +71,10 @@ class ProjectController extends Controller
         $p->slug = str_slug($request->project_name);
         $p->typical_job_cost = $request->cost;
         $p->cost_details = $request->cost_details;
+        $p->user_id = Auth::id();
+
+
+
 
         // upload thumbnail
           if($request->hasFile('thumbnail')){
@@ -75,9 +82,7 @@ class ProjectController extends Controller
             $filename = $request->project_name.'-'.time().'-'.$thumb->getClientOriginalExtension();
             $location ='thumbnail/'.$filename;
             Image::make($thumb)->resize(370, 240)->save($location);
-
-
-              $p->thumbnail = '/'.$location;
+            $p->thumbnail = '/'.$location;
 
           }
               $p->save();
@@ -104,11 +109,12 @@ class ProjectController extends Controller
              else{
                print_r('error.Check if uploads folder is available');
              }
-            }
+
           }
 
+}
 
-
+  return response()->json(['success' => 'Project added succesfully'], 200);
     }
 
     /**

@@ -18,12 +18,15 @@ class CreateProjectsTable extends Migration
             $table->string('project_name');
             $table->string('slug');
             $table->text('description');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('department_id')->unsigned()->nullable();
             $table->foreign('department_id')->references('id')->on('departments')->onUpdate('cascade')->onDelete('set null');
             $table->string('typical_job_cost')->nullable();
             $table->text('cost_details')->nullable();
             $table->string('thumbnail');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
