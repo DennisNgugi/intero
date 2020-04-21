@@ -1,12 +1,12 @@
 @extends('layouts.intero')
 @section('content')
 
-@section('departmentList')
+{{-- @section('departmentList')
 @foreach($department as $d)
 <li><a href="/department/{{$d->id}}/{{$d->slug}}">{{$d->department_name}}</a></li>
 @endforeach
 
-@stop
+@stop --}}
         <!--Main Slider-->
         <section class="main-slider style3">
             <div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
@@ -389,19 +389,24 @@
                                 </div>
                             </div>
                             <div class="text-holder">
-                                <div class="post-date">
+                                {{-- <div class="post-date">
                                     <h3>02 <span>Mar 2019</span></h3>
-                                </div>
+                                </div> --}}
                                 <div class="meta-box">
                                     <ul class="meta-info">
-                                        <li>By <a href="#">Rubin Santro</a></li>
-                                        <li>In <a href="#">Contemporary</a></li>
+                                        <li>By <a href="#">{{ $p->users->name }}</a></li>
+                                        {{-- <li>In <a href="#">Contemporary</a></li> --}}
                                     </ul>
                                 </div>
-                                <h3 class="blog-title"><a href="blog-single.html">{{$p->project_name}}</a></h3>
+                                <h3 class="blog-title"><a href="project/{{ $p->slug }}">{{$p->project_name}}</a></h3>
                                 <div class="text">
-                                    <p>{{$p->description}}</p>
-                                    <a class="btn-two" href="#">Read More<span class="flaticon-next"></span></a>
+                                    <p>
+                                      {{ str_limit(strip_tags($p->description),160)}}
+
+                                    </p>
+                                    @if(strlen(strip_tags($p->description)) >160)
+                                    <a class="btn-two" href="project/{{ $p->slug }}">Read More<span class="flaticon-next"></span></a>
+                                  @endif
                                 </div>
                             </div>
                         </div>

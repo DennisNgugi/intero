@@ -72,8 +72,8 @@
 
   </div>
 </template>
-
 <script>
+ // TODO: update image profile 
 export default {
   data(){
     return{

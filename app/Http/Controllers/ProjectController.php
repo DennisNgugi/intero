@@ -5,6 +5,7 @@ use App\Http\Resources\ProjectCollection;
 use App\Http\Resources\DepartmentCollection;
 use Image;
 use DB;
+use Response;
 use App\User;
 use App\Project;
 use App\Department;
@@ -46,6 +47,13 @@ class ProjectController extends Controller
     {
         $department = Department::all();
         return view('dashboard.projects.create',compact('department'));
+    }
+
+    public function projectsingle(Project $project){
+
+      $project_single = Project::with('projectimages','users')->where('slug',$project['slug'])->get();
+      //return Response::json($project_single);
+       return view('project.project-single',compact('project_single'));
     }
 
     /**

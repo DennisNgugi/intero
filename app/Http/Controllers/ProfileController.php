@@ -36,6 +36,12 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
+
+      $request->validate([
+        'company_name' => 'required|unique:users',
+        'name'=> 'required|unique:users',
+
+      ]);
         $user = User::find($request->id);
         $user->company_name = $request->company_name;
         $user->company_slug = str_slug($request->company_name);

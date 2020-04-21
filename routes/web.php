@@ -19,6 +19,7 @@ Route::get('/department/{id}/{slug}','DepartmentController@departmentview');
 Route::get('/products', function () {
     return view('products');
 });
+Route::get('/project-single/{project}','ProjectController@projectsingle');
 Route::get('/proffesional', function () {
     return view('proffesional');
 });

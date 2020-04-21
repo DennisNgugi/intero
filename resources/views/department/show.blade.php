@@ -15,7 +15,7 @@
 
                                 </div>
                                 <div class="text-holder">
-                                    <h3 class="blog-title"><a href="">{{$d->project_name}}</a></h3>
+                                    <h3 class="blog-title"><a href="/project-single/{{ $d->slug }}">{{$d->project_name}}</a></h3>
                                     <div class="meta-box">
                                         <ul class="meta-info">
                                             <li>Call <a href="#">071974014</a></li>
@@ -28,7 +28,7 @@
                                         <p>{{$d->description}}</p>
                                     </div>
                                     <div class="button">
-                                        <a class="btn btn-primary" href="/proffesional-view">Read More...</a>
+                                        <a class="btn btn-primary" href="/project/{{ $d->slug }}">Read More...</a>
                                     </div>
                                 </div>
                             </div>

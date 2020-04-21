@@ -97,8 +97,15 @@
                                 </li>
                                 <li class="dropdown"><a href="project.html">Find a Pro</a>
                                     <ul>
+                                      @php
+                                        $pct = \App\Department::all();
+                                      @endphp
+                                      @foreach ($pct as $d)
+                                        <li><a href="/department/{{$d->id}}/{{$d->slug}}">{{$d->department_name}}</a></li>
 
-                                      @yield('departmentList')
+                                      @endforeach
+
+
                                     </ul>
                                 </li>
                                 @if(!Auth::check())
