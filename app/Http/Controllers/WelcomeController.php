@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
+  // public function __construct()
+  //  {
+  //      $this->middleware(['verified']);
+  //  }
+
     public function homePage(){
       $department = Department::all();
       $project = Project::all();

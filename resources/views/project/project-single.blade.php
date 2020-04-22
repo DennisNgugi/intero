@@ -270,9 +270,73 @@
           <h4 class="card-title font-weight-bold">{{ $project_single[0]->users->name }}</h4>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
             card's content.</p>
-          <a style="color:white;" class="btn btn-primary btn-md btn-rounded">Contact</a>
-        </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">
+            Contact
+            </button>
+              </div>
       </div>
+
+      <!-- Button trigger modal -->
+      <form class="" action="/inquiry-submit" method="post">
+  @csrf
+
+<!-- Full Height Modal Right -->
+<div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
+  <div class="modal-dialog modal-full-height modal-right" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Contact this pro</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+          <input type="hidden" name="id" value="{{ $project_single[0]->users->id  }}">
+          <div class="form-group">
+            <label for="">To:</label>
+            <input type="text" name="full_name" disabled class="form-control" value="{{ $project_single[0]->users->email }}">
+          </div>
+
+          <small><b>This is information will be shared with the pro</b></small>
+          <div class="form-group">
+            <label for="">Full name</label>
+            <input type="text" name="full_name" class="form-control" value="">
+          </div>
+
+          <div class="form-group">
+            <label for="">Enter Your email:</label>
+            <input type="email" name="email" class="form-control" value="">
+          </div>
+          <div class="form-group">
+            <label for="">Phone number:</label>
+            <input type="text" name="contact" class="form-control" value="">
+          </div>
+
+          <div class="form-group">
+            <label for="">Message:</label>
+            <textarea name="message" class="form-control" rows="8" cols="8"></textarea>
+          </div>
+
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" name="" class="btn btn-primary" value="Submit">
+      </div>
+
+      @include('sweetalert::alert')
+    </div>
+  </div>
+</div>
+
+  </form>
+<!-- Full Height Modal Right -->
                       {{-- <div class="author-box-holder">
                           <div class="inner-box">
                               <div class="img-box">

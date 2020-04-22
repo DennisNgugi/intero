@@ -19,7 +19,7 @@ Route::get('/department/{id}/{slug}','DepartmentController@departmentview');
 Route::get('/products', function () {
     return view('products');
 });
-Route::get('/project-single/{project}','ProjectController@projectsingle');
+Route::get('/project-single/{project}','ProjectController@projectsingle')->name('project-single');
 Route::get('/proffesional', function () {
     return view('proffesional');
 });
@@ -32,8 +32,8 @@ Route::get('/checkout', function () {
 Route::get('/shopping', function () {
     return view('shopping-cart');
 });
-
-Route::group(['middleware' => ['auth']],function (){
+Route::post('/inquiry-submit','InquiryController@store');
+Route::group(['middleware' => ['auth','verify']],function (){
   Route::resource('project','ProjectController');
   // Route::get('/profile/{id}/{slug}','ProfileController@index');
   // Route::post('/profile/{id}/{slug}','ProfileController@store');
@@ -48,6 +48,6 @@ Route::resource('/profile','ProfileController');
 });
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
