@@ -33,7 +33,7 @@ Route::get('/shopping', function () {
     return view('shopping-cart');
 });
 Route::post('/inquiry-submit','InquiryController@store');
-Route::group(['middleware' => ['auth','verify']],function (){
+Route::group(['middleware' => ['auth']],function (){
   Route::resource('project','ProjectController');
   // Route::get('/profile/{id}/{slug}','ProfileController@index');
   // Route::post('/profile/{id}/{slug}','ProfileController@store');
@@ -48,6 +48,6 @@ Route::resource('/profile','ProfileController');
 });
 
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
